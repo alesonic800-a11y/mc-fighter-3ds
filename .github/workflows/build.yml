@@ -15,13 +15,15 @@ jobs:
       - name: Instalar herramientas necesarias y compilar
         run: |
           apt-get update && apt-get install -y wget zip
-          # Descargar makerom y bannertool actualizados
-          wget https://github.com
-          unzip makerom-v0.18.3-ubuntu_x86_64.zip
+          
+          # Descargar makerom (enlace directo corregido)
+          wget -O makerom_linux.zip https://github.com
+          unzip makerom_linux.zip
           chmod +x makerom
           mv makerom /usr/local/bin/
 
-          wget https://github.com
+          # Descargar bannertool (enlace directo corregido)
+          wget -O bannertool.zip https://github.com
           unzip -j bannertool.zip linux-x86_64/bannertool
           chmod +x bannertool
           mv bannertool /usr/local/bin/
