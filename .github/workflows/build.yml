@@ -12,23 +12,13 @@ jobs:
       - name: Checkout del codigo
         uses: actions/checkout@v4
 
-      - name: Instalar herramientas necesarias y compilar
+      - name: Instalar makerom y bannertool oficiales
         run: |
-          apt-get update && apt-get install -y curl zip
-          
-          # Descargar makerom usando curl (siguiendo redirecciones)
-          curl -L -o makerom_linux.zip https://github.com
-          unzip makerom_linux.zip
-          chmod +x makerom
-          mv makerom /usr/local/bin/
+          apt-get update
+          apt-get install -y 3ds-makerom 3ds-bannertool
 
-          # Descargar bannertool usando curl (siguiendo redirecciones)
-          curl -L -o bannertool.zip https://github.com
-          unzip -j bannertool.zip linux-x86_64/bannertool
-          chmod +x bannertool
-          mv bannertool /usr/local/bin/
-
-          # Ejecutar la compilacion
+      - name: Compilar juego
+        run: |
           make cia
           make 3dsx
 
