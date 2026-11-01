@@ -14,16 +14,16 @@ jobs:
 
       - name: Instalar herramientas necesarias y compilar
         run: |
-          apt-get update && apt-get install -y wget zip
+          apt-get update && apt-get install -y curl zip
           
-          # Descargar makerom (enlace directo corregido)
-          wget -O makerom_linux.zip https://github.com
+          # Descargar makerom usando curl (siguiendo redirecciones)
+          curl -L -o makerom_linux.zip https://github.com
           unzip makerom_linux.zip
           chmod +x makerom
           mv makerom /usr/local/bin/
 
-          # Descargar bannertool (enlace directo corregido)
-          wget -O bannertool.zip https://github.com
+          # Descargar bannertool usando curl (siguiendo redirecciones)
+          curl -L -o bannertool.zip https://github.com
           unzip -j bannertool.zip linux-x86_64/bannertool
           chmod +x bannertool
           mv bannertool /usr/local/bin/
