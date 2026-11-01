@@ -12,11 +12,6 @@ jobs:
       - name: Checkout del codigo
         uses: actions/checkout@v4
 
-      - name: Instalar makerom y bannertool oficiales
-        run: |
-          apt-get update
-          apt-get install -y 3ds-makerom 3ds-bannertool
-
       - name: Compilar juego
         run: |
           make cia
@@ -29,3 +24,4 @@ jobs:
           path: |
             *.cia
             *.3dsx
+
